@@ -23,14 +23,13 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const db = firebase.firestore()
 </script>
 </head>
 <body>
 <div id="list"></div>
 <script>
-	app.collection('users')
+	db.collection('users')
   .add({
     first: 'Dez',
     last: 'Chuang',
