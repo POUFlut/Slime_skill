@@ -3,14 +3,34 @@
 <head>
 <meta charset="utf-8"/>
 <title>練習1</title>
-<script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js"></script>
-<script type="text/javascript" src="js/connectDB.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAJ1Of_t7VOmLf_Q9R6OFKMPRoYAyBYzLY",
+    authDomain: "slime-skill-db.firebaseapp.com",
+    projectId: "slime-skill-db",
+    storageBucket: "slime-skill-db.appspot.com",
+    messagingSenderId: "1054534804180",
+    appId: "1:1054534804180:web:c715ebe31ef3f92d335141",
+    measurementId: "G-D2YZY8W121"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </head>
 <body>
 <div id="list"></div>
 <script>
-	db.collection('users')
+	app.collection('users')
   .add({
     first: 'Dez',
     last: 'Chuang',
