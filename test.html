@@ -3,13 +3,25 @@
 <head>
 <meta charset="utf-8"/>
 <title>練習1</title>
+<script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app.jss"></script>
+<script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js"></script>
 <script type="text/javascript" src="js/connectDB.js"></script>
 </head>
 <body>
 <div id="list"></div>
 <script>
-	let list=document.getElementById("list");
-	list.innerHTML="...Loading...";
+	db.collection('users')
+  .add({
+    first: 'Dez',
+    last: 'Chuang',
+    gender: 'male'
+  })
+  .then(function(docRef) {
+    console.log('Document written with ID: ', docRef.id)
+  })
+  .catch(function(error) {
+    console.error('Error adding document: ', error)
+  })
 </script>
 </body>
 </html>
