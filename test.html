@@ -3,20 +3,13 @@
 <head>
 <meta charset="utf-8"/>
 <title>練習1</title>
-<script type="module" src="../Slime_skill/js/connectDB.js"></script>
+<script type="module" src="js/connectDB.js"></script>
+<script type="text/javascript" src="getdata.js"></script>
 </head>
 <body>
-<script type="module">
-    try {
-const docRef = addDoc(collection(db, "usersss"), {
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
+<script>
+    connectDB();
+    getData();
 </script>
 </body>
 </html>
