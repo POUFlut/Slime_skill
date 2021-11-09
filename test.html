@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8"/>
 <title>練習1</title>
-<script type="module" src="connectDB.js"></script>
+<script type="module" src="js/connectDB.js"></script>
 </head>
 <body>
-<div id="list"></div>
 <script type="module">
     try {
-const docRef = await addDoc(collection(db, "usersss"), {
+const docRef = addDoc(collection(db, "usersss"), {
     first: "Ada",
     last: "Lovelace",
     born: 1815
