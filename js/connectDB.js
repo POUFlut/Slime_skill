@@ -1,5 +1,5 @@
 //get firestroe function
-function connectDB() {
+//function connectDB() {
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 	import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-analytics.js";
 	import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
@@ -15,4 +15,4 @@ function connectDB() {
 	const app = initializeApp(firebaseConfig);
 	const analytics = getAnalytics(app);
 	const db = getFirestore();
-}
+//}
