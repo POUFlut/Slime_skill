@@ -19,7 +19,7 @@ const db = getFirestore();
 function getData() {
 	const a = doc(db, "char", "number");
 	const querySnapshot = getDoc(a);
-	console.log(querySnapshot.data());
+	console.log(querySnapshot.docs());
 }
 
 
