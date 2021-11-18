@@ -1,5 +1,5 @@
-function getSkillCheck() {  //¨ú±o¿ï¾Üªº§Ş¯àºØÃş
-    let skill = document.getElementById("skill_opt");
+function getSkillCheck() {  //å–å¾—é¸æ“‡çš„æŠ€èƒ½ç¨®é¡
+    let skill = document.getElementById("skill_opt_content");
     let skillArray = skill.getElementsByTagName("input");
     let skillCheck = [], skillCount = 0;
     for (let i = 0; i < skillArray.length; i++) {
@@ -11,8 +11,8 @@ function getSkillCheck() {  //¨ú±o¿ï¾Üªº§Ş¯àºØÃş
     return skillCheck;
 }
 
-function getUltCheck() {  //¨ú±o¿ï¾Üªº¶ø¸qºØÃş
-    let ult = document.getElementById("ult_opt");
+function getUltCheck() {  //å–å¾—é¸æ“‡çš„å¥§ç¾©ç¨®é¡
+    let ult = document.getElementById("ult_opt_content");
     let ultArray = ult.getElementsByTagName("input");
     let ultCheck = [], ultCount = 0;
     for (let i = 0; i < ultArray.length; i++) {
@@ -24,8 +24,8 @@ function getUltCheck() {  //¨ú±o¿ï¾Üªº¶ø¸qºØÃş
     return ultCheck;
 }
 
-function getLevelCheck() {  //¨ú±o¿ï¾Üªº¬P¼Æ
-    let level = document.getElementById("level_opt");
+function getLevelCheck() {  //å–å¾—é¸æ“‡çš„æ˜Ÿæ•¸
+    let level = document.getElementById("level_opt_content");
     let levelArray = level.getElementsByTagName("input");
     let levelCheck = [], levelCount = 0;
     for (let i = 0; i < levelArray.length; i++) {
@@ -38,8 +38,8 @@ function getLevelCheck() {  //¨ú±o¿ï¾Üªº¬P¼Æ
     return levelCheck;
 }
 
-function getDtypeCheck() {  //¨ú±o¿ï¾Üªº¶Ë®`Ãş«¬
-    let dtype = document.getElementById("dtype_opt");
+function getDtypeCheck() {  //å–å¾—é¸æ“‡çš„å‚·å®³é¡å‹
+    let dtype = document.getElementById("dtype_opt_content");
     let dtypeArray = dtype.getElementsByTagName("input");
     let dtypeCheck = [], dtypeCount = 0;
     for (let i = 0; i < dtypeArray.length; i++) {
@@ -51,8 +51,8 @@ function getDtypeCheck() {  //¨ú±o¿ï¾Üªº¶Ë®`Ãş«¬
     return dtypeCheck;
 }
 
-function getAttCheck() {  //¨ú±o¿ï¾ÜªºÄİ©Ê
-    let att = document.getElementById("att_opt");
+function getAttCheck() {  //å–å¾—é¸æ“‡çš„å±¬æ€§
+    let att = document.getElementById("att_opt_content");
     let attArray = att.getElementsByTagName("input");
     let attCheck = [], attCount = 0;
     for (let i = 0; i < attArray.length; i++) {
@@ -64,8 +64,8 @@ function getAttCheck() {  //¨ú±o¿ï¾ÜªºÄİ©Ê
     return attCheck;
 }
 
-function defaultSkill() {  //¥¼¿ï¨ú§Ş¯àºØÃş®Éµø¬°¥ş¿ï
-    let skill = document.getElementById("skill_opt");
+function defaultSkill() {  //æœªé¸å–æŠ€èƒ½ç¨®é¡æ™‚è¦–ç‚ºå…¨é¸
+    let skill = document.getElementById("skill_opt_content");
     let skillArray = skill.getElementsByTagName("input");
     let skillDefault = [];
     for (let i = 0; i < skillArray.length; i++) {
@@ -74,8 +74,8 @@ function defaultSkill() {  //¥¼¿ï¨ú§Ş¯àºØÃş®Éµø¬°¥ş¿ï
     return skillDefault;
 }
 
-function defaultLevel() {  //¥¼¿ï¨ú¬P¼Æ®Éµø¬°¥ş¿ï
-    let level = document.getElementById("level_opt");
+function defaultLevel() {  //æœªé¸å–æ˜Ÿæ•¸æ™‚è¦–ç‚ºå…¨é¸
+    let level = document.getElementById("level_opt_content");
     let levelArray = level.getElementsByTagName("input");
     let levelDefault = [];
     for (i = 0; i < levelArray.length; i++) {
@@ -85,8 +85,8 @@ function defaultLevel() {  //¥¼¿ï¨ú¬P¼Æ®Éµø¬°¥ş¿ï
     return levelDefault;
 }
 
-function defaultDtype() {  //¥¼¿ï¨ú¶Ë®`Ãş«¬®Éµø¬°¥ş¿ï
-    let dtype = document.getElementById("dtype_opt");
+function defaultDtype() {  //æœªé¸å–å‚·å®³é¡å‹æ™‚è¦–ç‚ºå…¨é¸
+    let dtype = document.getElementById("dtype_opt_content");
     let dtypeArray = dtype.getElementsByTagName("input");
     let dtypeDefault = [];
     for (let i = 0; i < dtypeArray.length; i++) {
@@ -95,8 +95,8 @@ function defaultDtype() {  //¥¼¿ï¨ú¶Ë®`Ãş«¬®Éµø¬°¥ş¿ï
     return dtypeDefault;
 }
 
-function defaultUlt() {  //¥¼¿ï¨ú¶ø¸qÃş«¬®Éµø¬°¥ş¿ï
-    let ult = document.getElementById("ult_opt");
+function defaultUlt() {  //æœªé¸å–å¥§ç¾©é¡å‹æ™‚è¦–ç‚ºå…¨é¸
+    let ult = document.getElementById("ult_opt_content");
     let ultArray = ult.getElementsByTagName("input");
     let ultDefault = [];
     for (let i = 0; i < ultArray.length; i++) {
@@ -105,8 +105,8 @@ function defaultUlt() {  //¥¼¿ï¨ú¶ø¸qÃş«¬®Éµø¬°¥ş¿ï
     return ultDefault;
 }
 
-function defaultAtt() {  //¥¼¿ï¨úÄİ©Ê®Éµø¬°¥ş¿ï
-    let att = document.getElementById("att_opt");
+function defaultAtt() {  //æœªé¸å–å±¬æ€§æ™‚è¦–ç‚ºå…¨é¸
+    let att = document.getElementById("att_opt_content");
     let attArray = att.getElementsByTagName("input");
     let attDefault = [];
     for (let i = 0; i < attArray.length; i++) {

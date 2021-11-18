@@ -1,29 +1,45 @@
-function reset_opt(opt) {  //­«¸m¿ï¨ú
-    let range = document.getElementById(opt);
+function reset_opt(opt) {  //é‡ç½®é¸å–
+    let newOpt = opt + "_content";
+    let range = document.getElementById(newOpt);
     let input = range.getElementsByTagName("input");
     for (let i = 0; i < input.length; i++) {
         input[i].checked = false;
+        input[i].parentNode.style.backgroundColor = "white";
+        input[i].parentNode.style.color = "black";
     }
 }
 
-function all_opt(opt) {  //¥ş¿ï
-    let range = document.getElementById(opt);
+function all_opt(opt) {  //å…¨é¸
+    let newOpt = opt + "_content";
+    let range = document.getElementById(newOpt);
     let input = range.getElementsByTagName("input");
     for (let i = 0; i < input.length; i++) {
         input[i].checked = true;
+        input[i].parentNode.style.backgroundColor = "darkturquoise";
+        //input[i].parentNode.style.color = "white";
     }
 }
 
 function charSearch() {
-    let skill = getSkillCheck();  //¨ú±o¿ï¾Üªº§Ş¯àºØÃş
-    let level = getLevelCheck();  //¨ú±o¿ï¾Üªº¬P¼Æ
-    let dtype = getDtypeCheck();  //¨ú±o¿ï¾Üªº¶Ë®`Ãş«¬
-    let ult = getUltCheck();  //¨ú±o¿ï¾Üªº¶ø¸qÃş«¬
-    let att = getAttCheck();  //¨ú±o¿ï¾ÜªºÄİ©Ê
-    if (skill[0] == undefined) { skill = defaultSkill() };  //¦pªG¥¼¿ï¾ÜÄİ©Ê
-    if (level[0] == undefined) { level = defaultLevel() };  //¦pªG¥¼¿ï¾Ü¬P¼Æ
-    if (dtype[0] == undefined) { dtype = defaultDtype() };  //¦pªG¥¼¿ï¾Ü¶Ë®`Ãş«¬
-    if (ult[0] == undefined) { ult = defaultUlt() };  //¦pªG¥¼¿ï¾Ü¶ø¸qÃş«¬
-    if (att[0] == undefined) { att = defaultAtt() };  //¦pªG¥¼¿ï¾ÜÄİ©Ê
+    let skill = getSkillCheck();  //å–å¾—é¸æ“‡çš„æŠ€èƒ½ç¨®é¡
+    let level = getLevelCheck();  //å–å¾—é¸æ“‡çš„æ˜Ÿæ•¸
+    let dtype = getDtypeCheck();  //å–å¾—é¸æ“‡çš„å‚·å®³é¡å‹
+    let ult = getUltCheck();  //å–å¾—é¸æ“‡çš„å¥§ç¾©é¡å‹
+    let att = getAttCheck();  //å–å¾—é¸æ“‡çš„å±¬æ€§
+    if (skill[0] == undefined) { skill = defaultSkill() };  //å¦‚æœæœªé¸æ“‡å±¬æ€§
+    if (level[0] == undefined) { level = defaultLevel() };  //å¦‚æœæœªé¸æ“‡æ˜Ÿæ•¸
+    if (dtype[0] == undefined) { dtype = defaultDtype() };  //å¦‚æœæœªé¸æ“‡å‚·å®³é¡å‹
+    if (ult[0] == undefined) { ult = defaultUlt() };  //å¦‚æœæœªé¸æ“‡å¥§ç¾©é¡å‹
+    if (att[0] == undefined) { att = defaultAtt() };  //å¦‚æœæœªé¸æ“‡å±¬æ€§
     ANDsearchData("char", skill, level, dtype, ult, att);
+}
+
+function sortObj(data) {  //æ’åº
+    data = data.sort((a, b) => {
+        if (a.id > b.id)
+            return 1;
+        else
+            return -1;
+    })
+    return data;
 }

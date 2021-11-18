@@ -2,25 +2,35 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>練習1</title>
+<title>轉生史萊姆技能搜尋器</title>
+<link href="css/stylesheet.css" rel="stylesheet" type="text/css" />
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 <script type="text/javascript" src="js/connectDB.js"></script>
 <script type="text/javascript" src="js/getdata.js"></script>
-<script type="text/javascript" src="js/scatt.js"></script>
 <script type="text/javascript" src="js/getCheck.js"></script>
+<script type="text/javascript" src="js/show.js"></script>
+<script type="text/javascript" src="js/scatt.js"></script>
 </head>
 <body>
+    <div class="top">
+        <div class="title">轉生史萊姆技能搜尋器</div>
+        <div class="btn_div">
+            <div class="top_div">
+                <button class="top_btn" id="reset_all">全部重置</button>
+            </div>
+            <div class="top_div">
+                <button id="searchBtn" class="top_btn">搜尋</button>
+            </div>
+        </div>
+    </div>
     <div class="class_opt" id="skill">
         <div class="cap">
+            <h1>技能種類</h1>
             <hr />
-            <h3>技能種類</h3>
         </div>
-        <div class="reset_opt">
-            <button class="reset_btn" id="reset_level" onclick="reset_opt('skill_opt')">重置</button>
-        </div>
-        <div class="skill_opt" id="skill_opt">
+        <div class="skill_opt" id="skill_opt_content">
             <div class="opt">
                 <label class="label_opt">
                     自身攻擊力上升
@@ -81,7 +91,8 @@
                     <input type="checkbox" class="filter" id="AAIG2U" />
                 </label>
             </div>
-            <div style="height:100px"></div>
+            <i></i><i></i><i></i>
+            <div class="space"></div>
             <div class="opt">
                 <label class="label_opt">
                     我方全體攻擊力上升
@@ -172,7 +183,8 @@
                     <input type="checkbox" class="filter" id="ABQ" />
                 </label>
             </div>
-            <div style="height:100px"></div>
+            <i></i><i></i><i></i>
+            <div class="space"></div>
             <div class="opt">
                 <label class="label_opt">
                     敵方單體攻擊力下降
@@ -245,7 +257,8 @@
                     <input type="checkbox" class="filter" id="BAZBND" />
                 </label>
             </div>
-            <div style="height:100px"></div>
+            <i></i><i></i><i></i>
+            <div class="space"></div>
             <div class="opt">
                 <label class="label_opt">
                     敵方全體防禦力下降
@@ -276,7 +289,8 @@
                     <input type="checkbox" class="filter" id="BBM7JD" />
                 </label>
             </div>
-            <div style="height:100px"></div>
+            <i></i><i></i><i></i>
+            <div class="space"></div>
             <div class="opt">
                 <label class="label_opt">
                     重抽手牌
@@ -349,20 +363,19 @@
                     <input type="checkbox" class="filter" id="ZCNU" />
                 </label>
             </div>
+            <i></i><i></i><i></i>
+        </div>
+        <div class="reset_opt">
+            <button class="reset_btn" id="skill_opt">重置</button>
+            <hr />
         </div>
     </div>
     <div class="class_opt" id="level">
         <div class="cap">
+            <h1>星數</h1>
             <hr />
-            <h3>星數</h3>
         </div>
-        <div class="reset_opt">
-            <button class="reset_btn" id="reset_level" onclick="reset_opt('level_opt')">重置</button>
-        </div>
-        <div class="all_opt">
-            <button class="all_btn" id="all_level" onclick="all_opt('level_opt')">全選</button>
-        </div>
-        <div class="level_opt" id="level_opt">
+        <div class="level_opt" id="level_opt_content">
             <div class="opt">
                 <label class="label_opt">
                     五星
@@ -382,19 +395,23 @@
                 </label>
             </div>
         </div>
+        <div class="btn_group">
+            <div class="reset_opt">
+                <button class="reset_btn" id="level_opt">重置</button>
+            </div>
+            <div class="all_opt">
+                <button class="all_btn" id="all_level">全選</button>
+                <hr />
+            </div>
+            <hr />
+        </div>
     </div>
     <div class="class_opt" id="dtype">
         <div class="cap">
+            <h1>傷害類型</h1>
             <hr />
-            <h3>傷害類型</h3>
         </div>
-        <div class="reset_opt">
-            <button class="reset_btn" id="reset_dtype" onclick="reset_opt('dtype_opt')">重置</button>
-        </div>
-        <div class="all_opt">
-            <button class="all_btn" id="all_dtype" onclick="all_opt('dtype_opt')">全選</button>
-        </div>
-        <div class="dtype_opt" id="dtype_opt">
+        <div class="dtype_opt" id="dtype_opt_content">
             <div class="opt">
                 <label class="label_opt">
                     物理
@@ -408,19 +425,22 @@
                 </label>
             </div>
         </div>
+        <div class="btn_group">
+            <div class="reset_opt">
+                <button class="reset_btn" id="dtype_opt">重置</button>
+            </div>
+            <div class="all_opt">
+                <button class="all_btn" id="all_dtype">全選</button>
+                <hr />
+            </div>
+        </div>
     </div>
     <div class="class_opt" id="ult">
         <div class="cap">
+            <h1>奧義類型</h1>
             <hr />
-            <h3>奧義類型</h3>
         </div>
-        <div class="reset_opt">
-            <button class="reset_btn" id="reset_ult" onclick="reset_opt('ult_opt')">重置</button>
-        </div>
-        <div class="all_opt">
-            <button class="all_btn" id="all_ult" onclick="all_opt('ult_opt')">全選</button>
-        </div>
-        <div class="ult_opt" id="ult_opt">
+        <div class="ult_opt" id="ult_opt_content">
             <div class="opt">
                 <label class="label_opt">
                     單體
@@ -434,20 +454,22 @@
                 </label>
             </div>
         </div>
-        <button onclick="charSearch()"></button>
+        <div class="btn_group">
+            <div class="reset_opt">
+                <button class="reset_btn" id="ult_opt">重置</button>
+            </div>
+            <div class="all_opt">
+                <button class="all_btn" id="all_ult">全選</button>
+                <hr />
+            </div>
+        </div>
     </div>
     <div class="class_opt" id="att">
         <div class="cap">
+            <h1>屬性</h1>
             <hr />
-            <h3>屬性</h3>
         </div>
-        <div class="reset_opt">
-            <button class="reset_btn" id="reset_att" onclick="reset_opt('att_opt')">重置</button>
-        </div>
-        <div class="all_opt">
-            <button class="all_btn" id="all_att" onclick="all_opt('att_opt')">全選</button>
-        </div>
-        <div class="att_opt" id="att_opt">
+        <div class="att_opt" id="att_opt_content">
             <div class="opt">
                 <label class="label_opt">
                     火
@@ -490,9 +512,18 @@
                     <input type="checkbox" class="filter" id="dark" />
                 </label>
             </div>
+            <i></i><i></i><i></i>
+        </div>
+        <div class="reset_opt">
+            <button class="reset_btn" id="att_opt">重置</button>
+        </div>
+        <div class="all_opt">
+            <button class="all_btn" id="all_att">全選</button>
+            <hr />
         </div>
     </div>
-    <button onclick="charSearch()">查詢</button>
-    <div></div>
+    <div class="searchResult" id="searchResult"></div>
+    <button class="goTop" id="goTop">↑</button>
+<script type="text/javascript" src="js/event.js"></script>
 </body>
 </html>

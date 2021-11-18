@@ -1,7 +1,7 @@
-async function ANDsearchData(collection, skill, level, dtype, ult, att) {  //®˙±oßﬁØ‡øzøÔ´·™∫∏ÍÆ∆,AND¨d∏ﬂ
+async function ANDsearchData(collection, skill, level, dtype, ult, att) {  //ÂèñÂæóÊäÄËÉΩÁØ©ÈÅ∏ÂæåÁöÑË≥áÊñô,ANDÊü•Ë©¢
     let obj_skill = [], storage1 = [], storage2 = [], storage3 = [], storage4 = [], storage5 = [], storage6 = [];
     switch (skill.length) {
-        case 1:  //§ƒøÔ§@≠”ßﬁØ‡
+        case 1:  //ÂãæÈÅ∏‰∏ÄÂÄãÊäÄËÉΩ
             await db.collection(collection).where("skill", "array-contains", skill[0])
                 .get().then(querySnapshot => {
                     querySnapshot.forEach(data => {
@@ -9,7 +9,7 @@ async function ANDsearchData(collection, skill, level, dtype, ult, att) {  //®˙±
                     })
                 })
             break;
-        case 2:  //§ƒøÔ®‚≠”ßﬁØ‡
+        case 2:  //ÂãæÈÅ∏ÂÖ©ÂÄãÊäÄËÉΩ
             await db.collection(collection).where("skill", "array-contains", skill[0])
                 .get().then(querySnapshot => {
                     querySnapshot.forEach(data => {
@@ -32,7 +32,7 @@ async function ANDsearchData(collection, skill, level, dtype, ult, att) {  //®˙±
                 }
             }
             break;
-        case 3:  //§ƒøÔ§T≠”ßﬁØ‡
+        case 3:  //ÂãæÈÅ∏‰∏âÂÄãÊäÄËÉΩ
             await db.collection(collection).where("skill", "array-contains", skill[0])
                 .get().then(querySnapshot => {
                     querySnapshot.forEach(data => {
@@ -69,7 +69,7 @@ async function ANDsearchData(collection, skill, level, dtype, ult, att) {  //®˙±
                 }
             }
             break;
-        case 4:  //§ƒøÔ•|≠”ßﬁØ‡
+        case 4:  //ÂãæÈÅ∏ÂõõÂÄãÊäÄËÉΩ
             await db.collection(collection).where("skill", "array-contains", skill[0])
                 .get().then(querySnapshot => {
                     querySnapshot.forEach(data => {
@@ -121,13 +121,13 @@ async function ANDsearchData(collection, skill, level, dtype, ult, att) {  //®˙±
             }
             break;
         default:
-            console.log("quantity error");
+            showResult(null);
     }
     //console.log(obj_skill);
     selectData_level(level, dtype, ult, att, obj_skill);
 }
 
-function selectData_level(level, dtype, ult, att, obj_skill) {  //øzøÔ¨Pº∆
+function selectData_level(level, dtype, ult, att, obj_skill) {  //ÁØ©ÈÅ∏ÊòüÊï∏
     let obj_level = [];
     for (let i = 0; i < level.length; i++) {
         for (let j = 0; j < obj_skill.length; j++) {
@@ -140,7 +140,7 @@ function selectData_level(level, dtype, ult, att, obj_skill) {  //øzøÔ¨Pº∆
     selectData_dtype(dtype, ult, att, obj_level);
 }
 
-function selectData_dtype(dtype, ult, att, obj_level) {  //øzøÔ∂ÀÆ`√˛´¨
+function selectData_dtype(dtype, ult, att, obj_level) {  //ÁØ©ÈÅ∏ÂÇ∑ÂÆ≥È°ûÂûã
     let obj_dtype = [];
     for (let i = 0; i < dtype.length; i++) {
         for (let j = 0; j < obj_level.length; j++) {
@@ -153,7 +153,7 @@ function selectData_dtype(dtype, ult, att, obj_level) {  //øzøÔ∂ÀÆ`√˛´¨
     selectData_ult(ult, att, obj_dtype);
 }
 
-function selectData_ult(ult, att, obj_dtype) {  //øzøÔ∂¯∏q√˛´¨
+function selectData_ult(ult, att, obj_dtype) {  //ÁØ©ÈÅ∏Â•ßÁæ©È°ûÂûã
     let obj_ult = [];
     for (let i = 0; i < ult.length; i++) {
         for (let j = 0; j < obj_dtype.length; j++) {
@@ -166,7 +166,7 @@ function selectData_ult(ult, att, obj_dtype) {  //øzøÔ∂¯∏q√˛´¨
     selectData_att(att, obj_ult);
 }
 
-function selectData_att(att, obj_ult) {  //øzøÔƒ›© 
+function selectData_att(att, obj_ult) {  //ÁØ©ÈÅ∏Â±¨ÊÄß
     let obj_att = [];
     for (let i = 0; i < att.length; i++) {
         for (let j = 0; j < obj_ult.length; j++) {
@@ -175,15 +175,16 @@ function selectData_att(att, obj_ult) {  //øzøÔƒ›© 
             }
         }
     }
-    console.log(obj_att);
+    obj_att = sortObj(obj_att);
+    showResult(obj_att);
     //showResult(obj_att, objId_att);
 }
 
-function getIcon() {
-    let storageRef = storage.ref("icon/A310801.jpg");
-    storageRef.getDownloadURL()
+async function getIcon(id, img) {  //ÂèñÂæóËßíËâ≤ÂúñÁâá
+    let ref = "icon/" + id + ".jpg";
+    let storageRef = storage.ref(ref);
+    await storageRef.getDownloadURL()
         .then((url) => {
-            let test = url;
-            document.querySelector('img').src = test;
+            img.src = url;
         })
 }
