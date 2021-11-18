@@ -31,7 +31,10 @@ function charSearch() {
     if (dtype[0] == undefined) { dtype = defaultDtype() };  //如果未選擇傷害類型
     if (ult[0] == undefined) { ult = defaultUlt() };  //如果未選擇奧義類型
     if (att[0] == undefined) { att = defaultAtt() };  //如果未選擇屬性
-    ANDsearchData("char", skill, level, dtype, ult, att);
+    if (skill.length > 4) {
+        showResult(null);
+    }
+    else ANDsearchData("char", skill, level, dtype, ult, att);
 }
 
 function sortObj(data) {  //排序

@@ -227,12 +227,21 @@ h1{
 .searchResult {
     width: 70%;
     margin: auto;
+    margin-bottom:100px;
     margin-top: 70px;
     flex-wrap: wrap;
     text-align: center;
     font-size: 24px;
     display:flex;
     justify-content:space-between;
+}
+
+.re_cap {
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 24px;
 }
 
 .resultDiv{
@@ -261,8 +270,11 @@ h1{
     text-decoration:none;
 }
 
-#no_result{
-    background-color:black;
+.no_result {
+    color: cadetblue;
+    opacity: 0.5;
+    font-size: 60px;
+    width : 100%;
 }
 
 .goTop {

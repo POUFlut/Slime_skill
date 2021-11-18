@@ -4,9 +4,21 @@ function showResult(data) {  //顯示搜尋結果
     if (child.length != 0 || child != null) {  //清空已有內容
         parent.innerHTML = "";
     }
-    if ( data == null ) {
+    let div = document.createElement("div");
+    let h2 = document.createElement("h2");
+    let hr = document.createElement("hr");
+    div.setAttribute("class", "re_cap");
+    div.setAttribute("id", "resultTitle");
+    parent.appendChild(div);
+    let title = document.getElementById("resultTitle");
+    h2.textContent = "搜尋結果";
+    title.appendChild(h2);
+    title.appendChild(hr);
+    if ( data == null || data.length == 0) {
         addDiv("no_result");
+        let no_result = document.getElementById("no_result");
         let result = document.getElementById("no_result");
+        no_result.setAttribute("class", "no_result");
         result.textContent = "查無結果";
     }
     else {
