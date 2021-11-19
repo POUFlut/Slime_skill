@@ -47,18 +47,34 @@ for (let i = 0; i < input.length; i++) {  //選取變色
     });
 }
 
-goTop.addEventListener("click", function () {
+goTop.addEventListener("click", function () {  //至頂
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.documentElement.scrollTop = 0;
 });
 
-document.addEventListener("scroll", function () {
+document.addEventListener("scroll", function () {  //至頂按鈕控制
     let scrollTop = document.documentElement.scrollTop;
     let btn = document.getElementById("goTop");
     if (scrollTop > 200) {
-            btn.style.opacity = 0.5;
+        btn.style.visibility = "visible";
+        btn.style.opacity = 0.5;
     }
     else {
+        btn.style.visibility = "hidden";
         btn.style.opacity = 0;
     }
 });
+
+function addImgEvent(id) {
+    let element = document.getElementById(id + "_img");
+    let div = document.getElementById(id + "_pId");
+    element.addEventListener("click", function addEvent() {
+        if (div.hasAttribute("data-show") == false) {
+            div.setAttribute("data-show", "");
+            element.style.borderStyle = "dashed";
+        }
+        else {
+            div.removeAttribute("data-show");
+            element.style.borderStyle = "none";
+        }
+    })
+}

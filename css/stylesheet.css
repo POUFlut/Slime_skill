@@ -176,7 +176,7 @@ h1{
     flex-wrap: wrap;
     width: 70%;
     margin: auto;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .opt {
@@ -244,15 +244,26 @@ h1{
     font-size: 24px;
 }
 
-.resultDiv{
-    display:flex;
-    flex-flow:column;
-    max-height:100px;
-    max-width:100px;
-    margin-left:1%;
-    margin-right:1%;
-    margin-bottom:50px;
-    
+.resultDiv {
+    display: flex;
+    flex-flow: column;
+    max-width: 100px;
+    min-height: 121px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 29px;
+}
+
+.resultImg {
+    max-width: 100px;
+    max-width: 100px;
+    border-style: none;
+    border-block-width: 3px;
+    border-color: brown;
+}
+
+.resultImg:hover{
+    cursor:pointer;
 }
 
 .searchResult > i {
@@ -288,7 +299,59 @@ h1{
     border-radius: 10px;
     opacity: 0;
     background-color: darkslateblue;
-    color:white;
-    border:none;
-    transition:0.5s;
+    color: white;
+    border: none;
+    transition: visibility 0.5s, opacity 0.5s linear;
+}
+
+.goTop:hover {
+    cursor: pointer;
+}
+
+.tooltip {
+    background: #333;
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+    display: none;
+}
+
+.tooltip[data-show]{
+    display:block;
+}
+
+.arrow,
+.arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+}
+
+.arrow {
+    visibility: hidden;
+}
+
+.arrow::before {
+    visibility: visible;
+    content: '';
+    transform: rotate(45deg);
+}
+
+.tooltip[data-popper-placement^='top'] > .arrow {
+    bottom: -4px;
+}
+
+.tooltip[data-popper-placement^='bottom'] > .arrow {
+    top: -4px;
+}
+
+.tooltip[data-popper-placement^='left'] > .arrow {
+    right: -4px;
+}
+
+.tooltip[data-popper-placement^='right'] > .arrow {
+    left: -4px;
 }
