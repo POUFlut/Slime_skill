@@ -64,7 +64,7 @@ document.addEventListener("scroll", function () {  //至頂按鈕控制
     }
 });
 
-function addImgEvent(id) {
+function addImgEvent(id) {  //點擊圖片時的處理
     let element = document.getElementById(id + "_img");
     let div = document.getElementById(id + "_pId");
     element.addEventListener("click", function addEvent() {

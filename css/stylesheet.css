@@ -320,6 +320,7 @@ h1{
 
 .tooltip[data-show]{
     display:block;
+    display:flex;
 }
 
 .arrow,

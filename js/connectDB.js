@@ -1,4 +1,4 @@
-firebase.initializeApp({
+﻿firebase.initializeApp({
     apiKey: "AIzaSyAJ1Of_t7VOmLf_Q9R6OFKMPRoYAyBYzLY",
     authDomain: "slime-skill-db.firebaseapp.com",
     projectId: "slime-skill-db",

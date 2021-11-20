@@ -188,3 +188,45 @@ async function getIcon(id, img) {  //取得角色圖片
             img.src = url;
         })
 }
+
+async function getPopperImg(id, attr_one_ele, attr_two_ele, attr_three_ele, sk_one_ele,
+    sk_two_ele, att, dtype, ult, one, two) {  //取得技能圖片 + 技能
+    let result_arr1 = [], result_arr2 = [];
+    await db.collection("charSkill").doc(id)
+        .get().then(data => {
+            result_arr1 = data.data()[1];
+            result_arr2 = data.data()[2];
+        });
+    let ref_attr = "skill/" + att + ".png";
+    let ref_dtype = "skill/" + dtype + ".png";
+    let ref_ult = "skill/" + ult + ".png";
+    let sk_one = "skill/" + result_arr1[0] + ".png";
+    let sk_two = "skill/" + result_arr2[0] + ".png";
+    let storage_attr = storage.ref(ref_attr);
+    let storage_dtype = storage.ref(ref_dtype);
+    let storage_ult = storage.ref(ref_ult);
+    let storage_sk_one = storage.ref(sk_one);
+    let storage_sk_two = storage.ref(sk_two);
+    await storage_attr.getDownloadURL()
+        .then((url) => {
+            attr_one_ele.src = url;
+        })
+    await storage_dtype.getDownloadURL()
+        .then((url) => {
+            attr_two_ele.src = url;
+        })
+    await storage_ult.getDownloadURL()
+        .then((url) => {
+            attr_three_ele.src = url;
+        })
+    await storage_sk_one.getDownloadURL()
+        .then((url) => {
+            sk_one_ele.src = url;
+        })
+    await storage_sk_two.getDownloadURL()
+        .then((url) => {
+            sk_two_ele.src = url;
+        })
+    let content = [result_arr1[1], result_arr2[1]];
+    setSkillContentDiv(id, one, two, content);
+}
