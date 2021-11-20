@@ -83,10 +83,12 @@ function addImgEvent(id) {  //點擊圖片時的處理
 and_btn.addEventListener("click", function () {
     if (and_btn.value == "AND") {
         and_btn.value = "OR";
-        and_btn.textContent = "OR";
+        and_btn.setAttribute("data_show", "");
+        and_btn.textContent = "OR 搜尋";
     }
     else {
         and_btn.value = "AND";
-        and_btn.textContent = "AND";
+        and_btn.textContent = "AND 搜尋";
+        and_btn.removeAttribute("data_show");
     }
 })

@@ -38,7 +38,7 @@ function charSearch() {
         }
         else ANDsearchData("char", skill, level, dtype, ult, att);
     }
-    else {
+    else {  
         if (skill.length > 10) {
             showResult(null);
         }

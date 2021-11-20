@@ -58,12 +58,16 @@ h1{
     opacity: 1;
 }
 
-#searchBtn{
-    background-color:cornflowerblue;
+#searchBtn {
+    background-color: cornflowerblue;
 }
 
 #AND {
     background-color:forestgreen;
+}
+
+#AND[data_show] {
+    background-color: chartreuse;
 }
 
 .class_opt {
@@ -391,4 +395,10 @@ h1{
 
 .tooltip[data-popper-placement^='right'] > .arrow {
     left: -4px;
+}
+
+footer{
+    text-align:center;
+    margin:10px;
+    opacity:0.7;
 }
