@@ -230,3 +230,14 @@ async function getPopperImg(id, attr_one_ele, attr_two_ele, attr_three_ele, sk_o
     let content = [result_arr1[1], result_arr2[1]];
     setSkillContentDiv(id, one, two, content);
 }
+
+async function ORsearchData(collection, skill, level, dtype, ult, att) {  //取得技能篩選後的資料,OR查詢
+    let obj_skill = [];
+    await db.collection(collection).where("skill", "array-contains-any", skill)
+        .get().then(querySnapshot => {
+            querySnapshot.forEach(data => {
+                obj_skill.push(data.data());
+            }) 
+         });
+    selectData_level(level, dtype, ult, att, obj_skill);
+}

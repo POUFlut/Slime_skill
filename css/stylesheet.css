@@ -22,7 +22,7 @@ h1{
 .title {
     font-size: 24px;
     color:antiquewhite;
-    width: 65%;
+    width: 50%;
     margin: auto;
     text-align: left;
     flex-wrap: wrap;
@@ -32,14 +32,14 @@ h1{
 .btn_div{
     display:flex;
     flex-wrap:wrap;
-    width:30%;
+    width:40%;
     justify-content:space-around;
 }
 
 .top_div {
     float: left;
     flex-wrap: wrap;
-    width: 40%;
+    width: 30%;
 }
 
 .top_btn {
@@ -60,6 +60,10 @@ h1{
 
 #searchBtn{
     background-color:cornflowerblue;
+}
+
+#AND {
+    background-color:forestgreen;
 }
 
 .class_opt {
@@ -313,14 +317,16 @@ h1{
     color: white;
     font-weight: bold;
     padding: 4px 8px;
-    font-size: 13px;
+    font-size: 16px;
     border-radius: 4px;
-    display: none;
+    display: none; 
+    width:390px;
 }
 
 .tooltip[data-show]{
     display:block;
     display:flex;
+    flex-flow:column;
 }
 
 .arrow,
@@ -329,6 +335,36 @@ h1{
     width: 8px;
     height: 8px;
     background: inherit;
+}
+
+.tooltip > hr{
+    width:90%;
+}
+
+.attr, .sk_one, .sk_two{
+    display:flex;
+    justify-content:left;
+    margin-right:10px;
+    
+}
+
+.skill_ic {
+    margin-right: 20px;
+    margin-left:20px;
+    max-height: 80px;
+    max-width: 80px;
+}
+
+.sk_c{
+    display:flex;
+    align-content:center;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.att{
+    max-height:40px;
+    max-width:40px;
 }
 
 .arrow {

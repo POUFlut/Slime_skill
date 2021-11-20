@@ -115,12 +115,16 @@ function setPopperDiv(pId, id, att, dtype, ult) {  //在Popper中新增div
     let attr = document.createElement("div");
     let sk_one = document.createElement("div");
     let sk_two = document.createElement("div");
+    let hr1 = document.createElement("hr");
+    let hr2 = document.createElement("hr");
     attr.setAttribute("class", "attr");
     attr.setAttribute("id", id + "_attr");
     parent.appendChild(attr);
+    parent.appendChild(hr1);
     sk_one.setAttribute("class", "sk_one");
     sk_one.setAttribute("id", id + "_sk_one");
     parent.appendChild(sk_one);
+    parent.appendChild(hr2);
     sk_two.setAttribute("class", "sk_two");
     sk_two.setAttribute("id", id + "_sk_two");
     parent.appendChild(sk_two);
@@ -154,7 +158,7 @@ function setPopperImgTag(id, attr, one, two, att, dtype, ult) {
     two.appendChild(sk_two);
 }
 
-function setSkillContentDiv(id, one, two, content) {
+function setSkillContentDiv(id, one, two, content) {  //寫入技能敘述
     let c_one = document.createElement("div");
     let c_two = document.createElement("div");
     let id_one = id + "_c_one";

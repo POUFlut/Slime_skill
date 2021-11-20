@@ -4,6 +4,7 @@ const reserAll = document.getElementById("reset_all");
 const all = document.getElementsByClassName("all_btn");
 const input = document.getElementsByTagName("input");
 const goTop = document.getElementById("goTop");
+const and_btn = document.getElementById("AND");
 
 searchBtn.addEventListener("click", function () {  //搜尋
     charSearch();
@@ -78,3 +79,14 @@ function addImgEvent(id) {  //點擊圖片時的處理
         }
     })
 }
+
+and_btn.addEventListener("click", function () {
+    if (and_btn.value == "AND") {
+        and_btn.value = "OR";
+        and_btn.textContent = "OR";
+    }
+    else {
+        and_btn.value = "AND";
+        and_btn.textContent = "AND";
+    }
+})
