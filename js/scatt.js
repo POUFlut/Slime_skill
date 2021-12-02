@@ -26,17 +26,22 @@ function charSearch() {
     let dtype = getDtypeCheck();  //取得選擇的傷害類型
     let ult = getUltCheck();  //取得選擇的奧義類型
     let att = getAttCheck();  //取得選擇的屬性
-    if (skill[0] == undefined) { skill = defaultSkill() };  //如果未選擇屬性
+    //if (skill[0] == undefined) { skill = defaultSkill() };  //如果未選擇屬性
     if (level[0] == undefined) { level = defaultLevel() };  //如果未選擇星數
     if (dtype[0] == undefined) { dtype = defaultDtype() };  //如果未選擇傷害類型
     if (ult[0] == undefined) { ult = defaultUlt() };  //如果未選擇奧義類型
     if (att[0] == undefined) { att = defaultAtt() };  //如果未選擇屬性
     let way = document.getElementById("AND");
     if (way.value == "AND") {
-        if (skill.length > 4) {
+        if (skill[0] != null && skill.length > 4) {
             showResult(null);
         }
-        else ANDsearchData("char", skill, level, dtype, ult, att);
+        else if (skill[0] != null) {
+            ANDsearchData("char", skill, level, dtype, ult, att);
+        }
+        else {
+            ANDsearchDataNoSkill("char", level, dtype, ult, att);
+        }
     }
     else {  
         if (skill.length > 10) {

@@ -64,7 +64,7 @@ function getAttCheck() {  //取得選擇的屬性
     return attCheck;
 }
 
-function defaultSkill() {  //未選取技能種類時視為全選
+/*function defaultSkill() {  //未選取技能種類時視為全選
     let skill = document.getElementById("skill_opt_content");
     let skillArray = skill.getElementsByTagName("input");
     let skillDefault = [];
@@ -72,7 +72,7 @@ function defaultSkill() {  //未選取技能種類時視為全選
         skillDefault[i] = skillArray[i].id;
     }
     return skillDefault;
-}
+}*/
 
 function defaultLevel() {  //未選取星數時視為全選
     let level = document.getElementById("level_opt_content");
