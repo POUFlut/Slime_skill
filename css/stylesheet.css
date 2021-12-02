@@ -420,6 +420,7 @@ footer{
 
     .top_btn {
         font-size: 16px;
+        min-height: 40px;
     }
 
     .btn_div {
