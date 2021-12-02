@@ -244,7 +244,7 @@ async function ORsearchData(collection, skill, level, dtype, ult, att) {  //取�
 
 async function ANDsearchDataNoSkill(collection, level, dtype, ult, att) {  //取得技能篩選後的資料,AND查詢,未選擇技能時
     let obj_level = [];
-    await db.collection(collection).where("level", "array-contains-any", level)
+    await db.collection(collection).where("level", "in", level)
         .get().then(querySnapshot => {
             querySnapshot.forEach(data => {
                 obj_level.push(data.data());
