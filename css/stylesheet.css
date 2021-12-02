@@ -310,6 +310,7 @@ h1{
     color: white;
     border: none;
     transition: visibility 0.5s, opacity 0.5s linear;
+    text-align:center;
 }
 
 .goTop:hover {
