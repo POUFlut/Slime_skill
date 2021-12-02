@@ -77,6 +77,11 @@ function addImgEvent(id) {  //點擊圖片時的處理
             div.removeAttribute("data-show");
             element.style.borderStyle = "none";
         }
+        let windowWidth = window.innerWidth;
+        let docWidth = document.documentElement.scrollWidth;
+        if (docWidth > windowWidth) {
+            window.scrollBy(0, 1);
+        }
     })
 }
 

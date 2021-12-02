@@ -324,8 +324,8 @@ h1{
     padding: 4px 8px;
     font-size: 16px;
     border-radius: 4px;
-    display: none; 
-    width:430px;
+    display: none;
+    width: 430px;
 }
 
 .tooltip[data-show]{
