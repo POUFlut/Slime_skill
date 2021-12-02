@@ -96,7 +96,7 @@ function pop(ref, popId) {  //pop div
                 options: {
                     offset: [0, 8]
                 }
-            },
+            }
         ],
         placement: 'top',
     });
