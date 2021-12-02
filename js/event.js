@@ -80,7 +80,7 @@ function addImgEvent(id) {  //點擊圖片時的處理
     })
 }
 
-and_btn.addEventListener("click", function () {
+and_btn.addEventListener("click", function () {  //AND OR 切換
     if (and_btn.value == "AND") {
         and_btn.value = "OR";
         and_btn.setAttribute("data_show", "");

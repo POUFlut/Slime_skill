@@ -96,6 +96,12 @@ function pop(ref, popId) {  //pop div
                 options: {
                     offset: [0, 8]
                 }
+            },
+            {
+                name: 'preventOverflow',
+                options: {
+                    padding: 5
+                },
             }
         ],
         placement: 'top'
