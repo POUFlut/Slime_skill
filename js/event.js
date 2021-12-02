@@ -72,12 +72,13 @@ function addImgEvent(id) {  //點擊圖片時的處理
         if (div.hasAttribute("data-show") == false) {
             div.setAttribute("data-show", "");
             element.style.borderStyle = "dashed";
+            window.scrollBy(0, 1);
         }
         else {
             div.removeAttribute("data-show");
             element.style.borderStyle = "none";
-        }
-            window.scrollBy(0, 1);
+            window.scrollBy(0, -1);
+        }            
     })
 }
 
