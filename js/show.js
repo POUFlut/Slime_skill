@@ -97,14 +97,8 @@ function pop(ref, popId) {  //pop div
                     offset: [0, 8]
                 }
             },
-            {
-                name: 'preventOverflow',
-                options: {
-                    padding: 5
-                },
-            }
         ],
-        placement: 'top'
+        placement: 'top',
     });
 }
 
