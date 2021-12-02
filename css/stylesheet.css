@@ -325,7 +325,7 @@ h1{
     font-size: 16px;
     border-radius: 4px;
     display: none;
-    width: 430px;
+    width: 450px;
 }
 
 .tooltip[data-show]{
