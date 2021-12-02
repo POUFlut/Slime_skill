@@ -406,6 +406,10 @@ footer{
 }
 
 @media only screen and (max-width:700px) {
+    body {
+        overflow-x: hidden;
+    }
+
     .top {
         width: 100%;
         flex-flow: column;
@@ -442,6 +446,6 @@ footer{
     }
 
     .tooltip {
-        width: 90%;
+        width: 100%;
     }
 }
