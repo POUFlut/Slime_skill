@@ -7,16 +7,16 @@ h1{
     margin-bottom:5px;
 }
 
-.top{
-    background-color:darkslategrey;
-    margin:auto;
-    padding-top:1em;
-    padding-bottom:1em;
-    width:100%;
-    display:flex;
-    flex-wrap:wrap;
-    position:fixed;
-    z-index:99;
+.top {
+    background-color: darkslategrey;
+    margin: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 99;
 }
 
 .title {
