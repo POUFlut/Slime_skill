@@ -7,6 +7,7 @@ const input = document.getElementsByTagName("input");
 const goTop = document.getElementById("goTop");
 const and_btn = document.getElementById("AND_char");
 const and_btn_bless = document.getElementById("AND_bless");
+const nav = document.getElementById("nav");
 
 if (searchBtn_char != null) {
     searchBtn_char.addEventListener("click", function () {  //搜尋_char
@@ -78,6 +79,16 @@ document.addEventListener("scroll", function () {  //至頂按鈕控制
         btn.style.opacity = 0;
     }
 });
+
+nav.addEventListener("click", function () {  //導覽列按鈕
+    let aside = document.getElementById("aside");
+    if ( aside.hasAttribute("data-show") == false ) {
+        aside.setAttribute("data-show", "");
+    }
+    else {
+        aside.removeAttribute("data-show");
+    }
+})
 
 function addImgEvent(id) {  //點擊圖片時的處理
     let element = document.getElementById(id + "_img");
