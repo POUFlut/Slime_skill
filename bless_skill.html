@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>轉生史萊姆技能搜尋器-守護</title>
+    <meta name="author" content="柏油(pouflut)" />
+    <meta meta name="copyright" content="柏油(pouflut)" />
+    <meta name="description" content="關於我轉生變成史萊姆這檔事-技能搜尋器" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="icon" href="./img/icon_bless.ico" />
+    <link href="./css/stylesheet.css" rel="stylesheet" type="text/css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script type="text/javascript" src="js/connectDB.js"></script>
+    <script type="text/javascript" src="js/getdata.js"></script>
+    <script type="text/javascript" src="js/getCheck.js"></script>
+    <script type="text/javascript" src="js/show.js"></script>
+    <script type="text/javascript" src="js/scatt.js"></script>
+</head>
+<body>
+    <div class="top">
+        <div class="nav_div"><img src="img/btnMenuActive.png" class="nav_img" id="nav"/></div>
+        <div class="title">轉生史萊姆技能搜尋器-守護</div>
+        <div class="btn_div">
+            <div class="top_div">
+                <button class="top_btn" id="AND_bless" value="AND">AND 搜尋</button>
+            </div>
+            <div class="top_div">
+                <button class="top_btn" id="reset_all">全部重置</button>
+            </div>
+            <div class="top_div">
+                <button id="searchBtn_bless" class="top_btn">搜尋</button>
+            </div>
+        </div>
+    </div>
+    <aside class="aside" id="aside">
+        <a target="_blank" href="https://pouflut.github.io/Slime_skill/index.html">
+            戰鬥卡技能搜尋器
+        </a>
+        <hr />
+        <a target="_blank" href="https://pouflut.github.io/Slime_skill/bless/bless_skill.html">
+            守護卡技能搜尋器
+        </a>
+        <hr />
+    </aside>
+    <div class="class_opt" id="skill">
+        <div class="cap">
+            <h1>技能種類</h1>
+            <hr />
+        </div>
+        <div class="skill_opt" id="skill_opt_content">
+            <div class="opt">
+                <label class="label_opt">
+                    我方全體格擋力上升
+                    <input type="checkbox" class="filter" id="ABC1U" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    我方全體格擋率上升
+                    <input type="checkbox" class="filter" id="ABC2U" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    我方全體反擊率上升
+                    <input type="checkbox" class="filter" id="ABF2U" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    我方全體火屬攻擊力上升
+                    <input type="checkbox" class="filter" id="ABM1AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    我方全體光屬攻擊力上升
+                    <input type="checkbox" class="filter" id="ABM6AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    我方全體奧義量表上升
+                    <input type="checkbox" class="filter" id="ABZBRU" />
+                </label>
+            </div>
+            <i></i><i></i><i></i>
+            <div class="space"></div>
+            <div class="opt">
+                <label class="label_opt">
+                    加護轉技能
+                    <input type="checkbox" class="filter" id="ZA2ZC" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    加護魂量表增加量上升
+                    <input type="checkbox" class="filter" id="ZANU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    加護魂傷害上升
+                    <input type="checkbox" class="filter" id="ZAPU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    奧義轉加護
+                    <input type="checkbox" class="filter" id="ZB2ZA" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    奧義轉技能
+                    <input type="checkbox" class="filter" id="ZB2ZC" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    奧義魂量表增加量上升
+                    <input type="checkbox" class="filter" id="ZBNU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    奧義魂傷害上升
+                    <input type="checkbox" class="filter" id="ZBPU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    技能轉加護
+                    <input type="checkbox" class="filter" id="ZC2ZA" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    技能轉奧義
+                    <input type="checkbox" class="filter" id="ZC2ZB" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    技能魂量表增加量上升
+                    <input type="checkbox" class="filter" id="ZCNU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    技能魂傷害上升
+                    <input type="checkbox" class="filter" id="ZCPU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    奧義發動魂傷害上升
+                    <input type="checkbox" class="filter" id="ZDPU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    技能Cost上限上升
+                    <input type="checkbox" class="filter" id="X2U" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    增加技能點數
+                    <input type="checkbox" class="filter" id="X3U" />
+                </label>
+            </div>
+            <i></i><i></i><i></i>
+        </div>
+        <div class="reset_opt">
+            <button class="reset_btn" id="skill_opt">重置</button>
+            <hr />
+        </div>
+    </div>
+    <div class="class_opt" id="passive_1">
+        <div class="cap">
+            <h1>加成屬性 ①</h1>
+            <hr />
+        </div>
+        <div class="passive_1_opt" id="passive_1_opt_content">
+            <div class="opt">
+                <label class="label_opt">
+                    火
+                    <input type="checkbox" class="filter" id="fire_1" value="ABM1AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    地
+                    <input type="checkbox" class="filter" id="ground_1" value="ABM2AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    空
+                    <input type="checkbox" class="filter" id="space_1" value="ABM3AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    風
+                    <input type="checkbox" class="filter" id="wind_1" value="ABM4AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    水
+                    <input type="checkbox" class="filter" id="water_1" value="ABM5AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    光
+                    <input type="checkbox" class="filter" id="light_1" value="ABM6AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    暗
+                    <input type="checkbox" class="filter" id="dark_1" value="ABM7AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    物理
+                    <input type="checkbox" class="filter" id="physical_1" value="ABS1AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    魔法
+                    <input type="checkbox" class="filter" id="magical_1" value="ABS2AU" />
+                </label>
+            </div>
+            <i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="btn_group">
+            <div class="reset_opt">
+                <button class="reset_btn" id="passive_1_opt">重置</button>
+            </div>
+            <div class="all_opt">
+                <button class="all_btn" id="all_level">全選</button>
+                <hr />
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="class_opt" id="passive_2">
+        <div class="cap">
+            <h1>加成屬性 ②</h1>
+            <hr />
+        </div>
+        <div class="passive_2_opt" id="passive_2_opt_content">
+            <div class="opt">
+                <label class="label_opt">
+                    火
+                    <input type="checkbox" class="filter" id="fire_2" value="ABM1AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    地
+                    <input type="checkbox" class="filter" id="ground_2" value="ABM2AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    空
+                    <input type="checkbox" class="filter" id="space_2" value="ABM3AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    風
+                    <input type="checkbox" class="filter" id="wind_2" value="ABM4AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    水
+                    <input type="checkbox" class="filter" id="water_2" value="ABM5AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    光
+                    <input type="checkbox" class="filter" id="light_2" value="ABM6AU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    暗
+                    <input type="checkbox" class="filter" id="dark_2" value="ABM7AU" />
+                </label>
+            </div>
+            <i><input class="filter" value="" /></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="btn_group">
+            <div class="reset_opt">
+                <button class="reset_btn" id="passive_2_opt">重置</button>
+            </div>
+            <div class="all_opt">
+                <button class="all_btn" id="all_dtype">全選</button>
+                <hr />
+            </div>
+        </div>
+    </div>
+    <div class="class_opt" id="level">
+        <div class="cap">
+            <h1>星數</h1>
+            <hr />
+        </div>
+        <div class="level_opt" id="level_opt_content">
+            <div class="opt">
+                <label class="label_opt">
+                    五星
+                    <input type="checkbox" class="filter" id="5" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    四星
+                    <input type="checkbox" class="filter" id="4" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    三星
+                    <input type="checkbox" class="filter" id="3" />
+                </label>
+            </div>
+        </div>
+        <div class="btn_group">
+            <div class="reset_opt">
+                <button class="reset_btn" id="level_opt">重置</button>
+            </div>
+            <div class="all_opt">
+                <button class="all_btn" id="all_level">全選</button>
+                <hr />
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="searchResult" id="searchResult"></div>
+    <button class="goTop" id="goTop">↑</button>
+    <footer>Copyright © 2021 柏油(pouflut)</footer>
+    <script type="text/javascript" src="js/event.js"></script>
+</body>
+<!-- Last modified : 2021/12/10 22:17 -->
+</html>
