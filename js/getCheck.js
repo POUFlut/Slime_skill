@@ -64,6 +64,32 @@ function getAttCheck() {  //取得選擇的屬性
     return attCheck;
 }
 
+function getPassive_1_Check() {  //取得選擇的被動_1
+    let passive_1 = document.getElementById("passive_1_opt_content");
+    let passiveArray = passive_1.getElementsByTagName("input");
+    let passiveCheck = [], passiveCount = 0;
+    for (let i = 0; i < passiveArray.length; i++) {
+        if (passiveArray[i].checked == true) {
+            passiveCheck[passiveCount] = passiveArray[i].value;
+            passiveCount++;
+        }
+    }
+    return passiveCheck;
+}
+
+function getPassive_2_Check() {  //取得選擇的被動_2
+    let passive_2 = document.getElementById("passive_2_opt_content");
+    let passiveArray = passive_2.getElementsByTagName("input");
+    let passiveCheck = [], passiveCount = 0;
+    for (let i = 0; i < passiveArray.length; i++) {
+        if (passiveArray[i].checked == true) {
+            passiveCheck[passiveCount] = passiveArray[i].value;
+            passiveCount++;
+        }
+    }
+    return passiveCheck;
+}
+
 /*function defaultSkill() {  //未選取技能種類時視為全選
     let skill = document.getElementById("skill_opt_content");
     let skillArray = skill.getElementsByTagName("input");
@@ -113,4 +139,24 @@ function defaultAtt() {  //未選取屬性時視為全選
         attDefault[i] = attArray[i].id;
     }
     return attDefault;
+}
+
+function defaultPassive_1() {  //未選取被動1時視為全選
+    let passive = document.getElementById("passive_1_opt_content");
+    let passiveArray = passive.getElementsByTagName("input");
+    let passiveDefault = [];
+    for (let i = 0; i < passiveArray.length; i++) {
+        passiveDefault[i] = passiveArray[i].value;
+    }
+    return passiveDefault;
+}
+
+function defaultPassive_2() {  //未選取被動2時視為全選
+    let passive = document.getElementById("passive_2_opt_content");
+    let passiveArray = passive.getElementsByTagName("input");
+    let passiveDefault = [];
+    for (let i = 0; i < passiveArray.length; i++) {
+        passiveDefault[i] = passiveArray[i].value;
+    }
+    return passiveDefault;
 }

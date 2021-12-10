@@ -24,13 +24,13 @@
         <div class="title">轉生史萊姆技能搜尋器-守護</div>
         <div class="btn_div">
             <div class="top_div">
-                <button class="top_btn" id="AND" value="AND">AND 搜尋</button>
+                <button class="top_btn" id="AND_bless" value="AND">AND 搜尋</button>
             </div>
             <div class="top_div">
                 <button class="top_btn" id="reset_all">全部重置</button>
             </div>
             <div class="top_div">
-                <button id="searchBtn" class="top_btn">搜尋</button>
+                <button id="searchBtn_bless" class="top_btn">搜尋</button>
             </div>
         </div>
     </div>
@@ -40,92 +40,6 @@
             <hr />
         </div>
         <div class="skill_opt" id="skill_opt_content">
-            <div class="opt">
-                <label class="label_opt">
-                    自身攻擊力上升
-                    <input type="checkbox" class="filter" id="AAAU" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身防禦力上升
-                    <input type="checkbox" class="filter" id="AABU" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身格擋貫穿力上升
-                    <input type="checkbox" class="filter" id="AAC1D1U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身格擋率上升
-                    <input type="checkbox" class="filter" id="AAC2U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身貫穿力上升
-                    <input type="checkbox" class="filter" id="AAD1U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身貫穿率上升
-                    <input type="checkbox" class="filter" id="AAD2U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身會心力上升
-                    <input type="checkbox" class="filter" id="AAE1U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身會心率上升
-                    <input type="checkbox" class="filter" id="AAE2U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身昏厥迴避率上升
-                    <input type="checkbox" class="filter" id="AAHG2U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身毒迴避率上升
-                    <input type="checkbox" class="filter" id="AAIG2U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    自身生命力回復
-                    <input type="checkbox" class="filter" id="AAQ" />
-                </label>
-            </div>
-            <i></i><i></i><i></i>
-            <div class="space"></div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體攻擊力上升
-                    <input type="checkbox" class="filter" id="ABAU" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體防禦力上升
-                    <input type="checkbox" class="filter" id="ABBU" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體格擋貫穿力上升
-                    <input type="checkbox" class="filter" id="ABC1D1U" />
-                </label>
-            </div>
             <div class="opt">
                 <label class="label_opt">
                     我方全體格擋力上升
@@ -140,196 +54,30 @@
             </div>
             <div class="opt">
                 <label class="label_opt">
-                    我方全體貫穿力上升
-                    <input type="checkbox" class="filter" id="ABD1U" />
+                    我方全體反擊率上升
+                    <input type="checkbox" class="filter" id="ABF2U" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
-                    我方全體貫穿抗性上升
-                    <input type="checkbox" class="filter" id="ABD1JU" />
+                    我方全體火屬攻擊力上升
+                    <input type="checkbox" class="filter" id="ABM1AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
-                    我方全體貫穿率上升
-                    <input type="checkbox" class="filter" id="ABD2U" />
+                    我方全體光屬攻擊力上升
+                    <input type="checkbox" class="filter" id="ABM6AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
-                    我方全體會心抗性上升
-                    <input type="checkbox" class="filter" id="ABE1JU" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體會心率上升
-                    <input type="checkbox" class="filter" id="ABE2U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體反擊力上升
-                    <input type="checkbox" class="filter" id="ABF1U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體昏厥迴避率上升
-                    <input type="checkbox" class="filter" id="ABHG2U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體中毒迴避率上升
-                    <input type="checkbox" class="filter" id="ABIG2U" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體解除中毒
-                    <input type="checkbox" class="filter" id="ABLI" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體解除昏厥
-                    <input type="checkbox" class="filter" id="ABLH" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體生命力回復
-                    <input type="checkbox" class="filter" id="ABQ" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    我方全體生命力上限上升
-                    <input type="checkbox" class="filter" id="ABTU" />
+                    我方全體奧義量表上升
+                    <input type="checkbox" class="filter" id="ABZBRU" />
                 </label>
             </div>
             <i></i><i></i><i></i>
             <div class="space"></div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體攻擊力下降
-                    <input type="checkbox" class="filter" id="BAAD" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體防禦力下降
-                    <input type="checkbox" class="filter" id="BABD" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體格擋力下降
-                    <input type="checkbox" class="filter" id="BAC1D" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體格擋率下降
-                    <input type="checkbox" class="filter" id="BAC2D" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體貫穿力下降
-                    <input type="checkbox" class="filter" id="BAD1D" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體貫穿抗性下降
-                    <input type="checkbox" class="filter" id="BAD1JD" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體會心力下降
-                    <input type="checkbox" class="filter" id="BAE1D" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體會心抗性下降
-                    <input type="checkbox" class="filter" id="BAE1JD" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體反擊率下降
-                    <input type="checkbox" class="filter" id="BAF2D" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體昏厥
-                    <input type="checkbox" class="filter" id="BAH" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體中毒
-                    <input type="checkbox" class="filter" id="BAI" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方單體奧義量表下降
-                    <input type="checkbox" class="filter" id="BAZBND" />
-                </label>
-            </div>
-            <i></i><i></i><i></i>
-            <div class="space"></div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方全體防禦力下降
-                    <input type="checkbox" class="filter" id="BBBD" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方全體貫穿力下降
-                    <input type="checkbox" class="filter" id="BBD1D" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方全體貫穿抗性下降
-                    <input type="checkbox" class="filter" id="BBD1JD" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方全體反擊抗性下降
-                    <input type="checkbox" class="filter" id="BBF1JD" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    敵方全體暗屬性抗性下降
-                    <input type="checkbox" class="filter" id="BBM7JD" />
-                </label>
-            </div>
-            <i></i><i></i><i></i>
-            <div class="space"></div>
-            <div class="opt">
-                <label class="label_opt">
-                    重抽手牌
-                    <input type="checkbox" class="filter" id="X1" />
-                </label>
-            </div>
-            <div class="opt">
-                <label class="label_opt">
-                    加護轉奧義
-                    <input type="checkbox" class="filter" id="ZA2ZB" />
-                </label>
-            </div>
             <div class="opt">
                 <label class="label_opt">
                     加護轉技能
@@ -396,6 +144,24 @@
                     <input type="checkbox" class="filter" id="ZCPU" />
                 </label>
             </div>
+            <div class="opt">
+                <label class="label_opt">
+                    奧義發動魂傷害上升
+                    <input type="checkbox" class="filter" id="ZDPU" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    技能Cost上限上升
+                    <input type="checkbox" class="filter" id="X2U" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    增加技能點數
+                    <input type="checkbox" class="filter" id="X3U" />
+                </label>
+            </div>
             <i></i><i></i><i></i>
         </div>
         <div class="reset_opt">
@@ -405,64 +171,65 @@
     </div>
     <div class="class_opt" id="passive_1">
         <div class="cap">
-            <h1>加成屬性(一)</h1>
+            <h1>加成屬性 ①</h1>
             <hr />
         </div>
         <div class="passive_1_opt" id="passive_1_opt_content">
             <div class="opt">
                 <label class="label_opt">
                     火
-                    <input type="checkbox" class="filter" id="fire_1" />
+                    <input type="checkbox" class="filter" id="fire_1" value="ABM1AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     地
-                    <input type="checkbox" class="filter" id="ground_1" />
+                    <input type="checkbox" class="filter" id="ground_1" value="ABM2AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     空
-                    <input type="checkbox" class="filter" id="space_1" />
+                    <input type="checkbox" class="filter" id="space_1" value="ABM3AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     風
-                    <input type="checkbox" class="filter" id="wind_1" />
+                    <input type="checkbox" class="filter" id="wind_1" value="ABM4AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     水
-                    <input type="checkbox" class="filter" id="water_1" />
+                    <input type="checkbox" class="filter" id="water_1" value="ABM5AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     光
-                    <input type="checkbox" class="filter" id="light_1" />
+                    <input type="checkbox" class="filter" id="light_1" value="ABM6AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     暗
-                    <input type="checkbox" class="filter" id="dark_1" />
+                    <input type="checkbox" class="filter" id="dark_1" value="ABM7AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     物理
-                    <input type="checkbox" class="filter" id="physical_1" />
+                    <input type="checkbox" class="filter" id="physical_1" value="ABS1AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     魔法
-                    <input type="checkbox" class="filter" id="magical_1" />
+                    <input type="checkbox" class="filter" id="magical_1" value="ABS2AU" />
                 </label>
             </div>
+            <i></i><i></i><i></i><i></i><i></i>
         </div>
         <div class="btn_group">
             <div class="reset_opt">
@@ -477,52 +244,53 @@
     </div>
     <div class="class_opt" id="passive_2">
         <div class="cap">
-            <h1>加成屬性(二)</h1>
+            <h1>加成屬性 ②</h1>
             <hr />
         </div>
         <div class="passive_2_opt" id="passive_2_opt_content">
             <div class="opt">
                 <label class="label_opt">
                     火
-                    <input type="checkbox" class="filter" id="fire_2" />
+                    <input type="checkbox" class="filter" id="fire_2" value="ABM1AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     地
-                    <input type="checkbox" class="filter" id="ground_2" />
+                    <input type="checkbox" class="filter" id="ground_2" value="ABM2AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     空
-                    <input type="checkbox" class="filter" id="space_2" />
+                    <input type="checkbox" class="filter" id="space_2" value="ABM3AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     風
-                    <input type="checkbox" class="filter" id="wind_2" />
+                    <input type="checkbox" class="filter" id="wind_2" value="ABM4AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     水
-                    <input type="checkbox" class="filter" id="water_2" />
+                    <input type="checkbox" class="filter" id="water_2" value="ABM5AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     光
-                    <input type="checkbox" class="filter" id="light_2" />
+                    <input type="checkbox" class="filter" id="light_2" value="ABM6AU" />
                 </label>
             </div>
             <div class="opt">
                 <label class="label_opt">
                     暗
-                    <input type="checkbox" class="filter" id="dark_2" />
+                    <input type="checkbox" class="filter" id="dark_2" value="ABM7AU" />
                 </label>
             </div>
+            <i><input class="filter" value="" /></i><i></i><i></i><i></i><i></i>
         </div>
         <div class="btn_group">
             <div class="reset_opt">
@@ -534,10 +302,46 @@
             </div>
         </div>
     </div>
+    <div class="class_opt" id="level">
+        <div class="cap">
+            <h1>星數</h1>
+            <hr />
+        </div>
+        <div class="level_opt" id="level_opt_content">
+            <div class="opt">
+                <label class="label_opt">
+                    五星
+                    <input type="checkbox" class="filter" id="5" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    四星
+                    <input type="checkbox" class="filter" id="4" />
+                </label>
+            </div>
+            <div class="opt">
+                <label class="label_opt">
+                    三星
+                    <input type="checkbox" class="filter" id="3" />
+                </label>
+            </div>
+        </div>
+        <div class="btn_group">
+            <div class="reset_opt">
+                <button class="reset_btn" id="level_opt">重置</button>
+            </div>
+            <div class="all_opt">
+                <button class="all_btn" id="all_level">全選</button>
+                <hr />
+            </div>
+            <hr />
+        </div>
+    </div>
     <div class="searchResult" id="searchResult"></div>
     <button class="goTop" id="goTop">↑</button>
     <footer>Copyright © 2021 柏油(pouflut)</footer>
     <script type="text/javascript" src="js/event.js"></script>
 </body>
-<!-- Last modified : 2021/12/08 12:53 -->
+<!-- Last modified : 2021/12/10 11:29 -->
 </html>

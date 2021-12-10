@@ -31,7 +31,7 @@ function charSearch() {
     if (dtype[0] == undefined) { dtype = defaultDtype() };  //如果未選擇傷害類型
     if (ult[0] == undefined) { ult = defaultUlt() };  //如果未選擇奧義類型
     if (att[0] == undefined) { att = defaultAtt() };  //如果未選擇屬性
-    let way = document.getElementById("AND");
+    let way = document.getElementById("AND_char");
     if (way.value == "AND") {
         if (skill[0] != null && skill.length > 4) {
             showResult(null);
@@ -48,6 +48,34 @@ function charSearch() {
             showResult(null);
         }
         else ORsearchData("char", skill, level, dtype, ult, att);
+    }
+}
+
+function blessSearch() {
+    let skill = getSkillCheck();  //取得選擇的技能種類
+    let level = getLevelCheck();  //取得選擇的星數
+    let passive_1 = getPassive_1_Check();  //取得選擇的被動_1
+    let passive_2 = getPassive_2_Check();  //取得選擇的被動_1
+    if (level[0] == undefined) { level = defaultLevel() };  //如果未選擇星數
+    if (passive_1[0] == undefined) { passive_1 = defaultPassive_1() };  //如果未選擇被動1
+    if (passive_2[0] == undefined) { passive_2 = defaultPassive_2() };  //如果未選擇被動2
+    let way = document.getElementById("AND_bless");
+    if (way.value == "AND") {
+        if (skill[0] != null && skill.length > 3) {
+            showResult(null);
+        }
+        else if (skill[0] != null) {
+            ANDsearchData_bless("bless", skill, level, passive_1, passive_2);
+        }
+        else {
+            ANDsearchDataNoSkill_bless("bless", level, passive_1, passive_2);
+        }
+    }
+    else {
+        if (skill.length > 10) {
+            showResult(null);
+        }
+        else ORsearchData_bless("bless", skill, level, passive_1, passive_2);
     }
 }
 

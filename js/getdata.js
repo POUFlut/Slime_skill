@@ -231,6 +231,35 @@ async function getPopperImg(id, attr_one_ele, attr_two_ele, attr_three_ele, sk_o
     setSkillContentDiv(id, one, two, content);
 }
 
+async function getPopperImg_bless(id, attr_img_one, sk_one, sk_two, att, one, two) {  //取得技能圖片 + 技能
+    let result_arr1 = [], result_arr2 = [];
+    await db.collection("blessSkill").doc(id)
+        .get().then(data => {
+            result_arr1 = data.data()[1];
+            result_arr2 = data.data()[2];
+        });
+    let ref_attr = "skill/" + att + ".png";
+    let sk_one_ref = "skill/" + result_arr1[0] + ".png";
+    let sk_two_ref = "skill/" + result_arr2[0] + ".png";
+    let storage_attr = storage.ref(ref_attr);
+    let storage_sk_one = storage.ref(sk_one_ref);
+    let storage_sk_two = storage.ref(sk_two_ref);
+    await storage_attr.getDownloadURL()
+        .then((url) => {
+            attr_img_one.src = url;
+        })
+    await storage_sk_one.getDownloadURL()
+        .then((url) => {
+            sk_one.src = url;
+        })
+    await storage_sk_two.getDownloadURL()
+        .then((url) => {
+            sk_two.src = url;
+        })
+    let content = [result_arr1[1], result_arr2[1]];
+    setSkillContentDiv_bless(id, one, two, content);
+}
+
 async function ORsearchData(collection, skill, level, dtype, ult, att) {  //取得技能篩選後的資料,OR查詢
     let obj_skill = [];
     await db.collection(collection).where("skill", "array-contains-any", skill)
@@ -251,4 +280,194 @@ async function ANDsearchDataNoSkill(collection, level, dtype, ult, att) {  //取
             })
         })
     selectData_dtype(dtype, ult, att, obj_level);
+}
+
+async function ANDsearchData_bless(collection, skill, level, pas1, pas2) {  //取得技能篩選後的資料,AND查詢_bless
+    let obj_skill = [], storage1 = [], storage2 = [], storage3 = [], storage4 = [], storage5 = [], storage6 = [];
+    switch (skill.length) {
+        case 1:  //勾選一個技能
+            await db.collection(collection).where("skill", "array-contains", skill[0])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        obj_skill.push(data.data());
+                    })
+                })
+            break;
+        case 2:  //勾選兩個技能
+            await db.collection(collection).where("skill", "array-contains", skill[0])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage1.push(data.data());
+                    })
+                    //console.log(storage1);
+                })
+            await db.collection(collection).where("skill", "array-contains", skill[1])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage2.push(data.data());
+                    })
+                    //console.log(storage2);
+                })
+            for (let i = 0; i < storage1.length; i++) {
+                for (let j = 0; j < storage2.length; j++) {
+                    if (storage1[i].id == storage2[j].id) {
+                        obj_skill.push(storage1[i]);
+                    }
+                }
+            }
+            break;
+        case 3:  //勾選三個技能
+            await db.collection(collection).where("skill", "array-contains", skill[0])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage1.push(data.data());
+                    })
+                    //console.log(storage1);
+                })
+            await db.collection(collection).where("skill", "array-contains", skill[1])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage2.push(data.data());
+                    })
+                    //console.log(storage2);
+                })
+            await db.collection(collection).where("skill", "array-contains", skill[2])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage3.push(data.data());
+                    })
+                    //console.log(storage3);
+                })
+            for (let i = 0; i < storage1.length; i++) {
+                for (let j = 0; j < storage2.length; j++) {
+                    if (storage1[i].id == storage2[j].id) {
+                        storage4.push(storage1[i]);
+                    }
+                }
+            }
+            for (let i = 0; i < storage4.length; i++) {
+                for (let j = 0; j < storage3.length; j++) {
+                    if (storage4[i].id == storage3[j].id) {
+                        obj_skill.push(storage4[i]);
+                    }
+                }
+            }
+            break;
+        case 4:  //勾選四個技能
+            await db.collection(collection).where("skill", "array-contains", skill[0])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage1.push(data.data());
+                    })
+                    //console.log(storage1);
+                })
+            await db.collection(collection).where("skill", "array-contains", skill[1])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage2.push(data.data());
+                    })
+                    //console.log(storage2);
+                })
+            await db.collection(collection).where("skill", "array-contains", skill[2])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage3.push(data.data());
+                    })
+                    //console.log(storage3);
+                })
+            await db.collection(collection).where("skill", "array-contains", skill[3])
+                .get().then(querySnapshot => {
+                    querySnapshot.forEach(data => {
+                        storage4.push(data.data());
+                    })
+                    //console.log(storage4);
+                })
+            for (let i = 0; i < storage1.length; i++) {
+                for (let j = 0; j < storage2.length; j++) {
+                    if (storage1[i].id == storage2[j].id) {
+                        storage5.push(storage1[i]);
+                    }
+                }
+            }
+            for (let i = 0; i < storage3.length; i++) {
+                for (let j = 0; j < storage4.length; j++) {
+                    if (storage3[i].id == storage4[j].id) {
+                        storage6.push(storage3[i]);
+                    }
+                }
+            }
+            for (let i = 0; i < storage5.length; i++) {
+                for (let j = 0; j < storage6.length; j++) {
+                    if (storage5[i].id == storage6[j].id) {
+                        obj_skill.push(storage5[i]);
+                    }
+                }
+            }
+            break;
+        default:
+            showResult(null);
+    }
+    selectData_level_bless(level, pas1, pas2, obj_skill);
+}
+
+function selectData_level_bless(level, pas1, pas2, obj_skill) {  //篩選星數_bless
+    let obj_level = [];
+    for (let i = 0; i < level.length; i++) {
+        for (let j = 0; j < obj_skill.length; j++) {
+            if (level[i] == obj_skill[j].level) {
+                obj_level.push(obj_skill[j]);
+            }
+        }
+    }
+    //console.log(obj_level);
+    selectData_pas1(pas1, pas2, obj_level);
+}
+
+function selectData_pas1(pas1, pas2, obj_level) {  //篩選pas1_bless
+    let obj_pas1 = [];
+    for (let i = 0; i < pas1.length; i++) {
+        for (let j = 0; j < obj_level.length; j++) {
+            if (pas1[i] == obj_level[j].passive_1) {
+                obj_pas1.push(obj_level[j]);
+            }
+        }
+    }
+    //console.log(obj_pas1);
+    selectData_pas2(pas2, obj_pas1);
+}
+
+function selectData_pas2(pas2, obj_pas1) {  //篩選pas2_bless
+    let obj_pas2 = [];
+    for (let i = 0; i < pas2.length; i++) {
+        for (let j = 0; j < obj_pas1.length; j++) {
+            if (pas2[i] == obj_pas1[j].passive_2) {
+                obj_pas2.push(obj_pas1[j]);
+            }
+        }
+    }
+    //console.log(obj_pas2);
+    obj_pas2 = sortObj(obj_pas2);
+    showResult(obj_pas2);
+}
+
+async function ANDsearchDataNoSkill_bless(collection, level, passive_1, passive_2) {  //取得技能篩選後的資料,AND查詢,未選擇技能時
+    let obj_level = [];
+    await db.collection(collection).where("level", "in", level)
+        .get().then(querySnapshot => {
+            querySnapshot.forEach(data => {
+                obj_level.push(data.data());
+            })
+        })
+    selectData_pas1(passive_1, passive_2, obj_level);
+}
+
+async function ORsearchData_bless(collection, skill, level, passive_1, passive_2) {  //取得技能篩選後的資料,OR查詢
+    let obj_skill = [];
+    await db.collection(collection).where("skill", "array-contains-any", skill)
+        .get().then(querySnapshot => {
+            querySnapshot.forEach(data => {
+                obj_skill.push(data.data());
+            })
+        });
+    selectData_level_bless(level, passive_1, passive_2, obj_skill);
 }

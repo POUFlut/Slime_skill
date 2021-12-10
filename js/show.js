@@ -5,7 +5,7 @@ function showResult(data) {  //顯示搜尋結果
         parent.innerHTML = "";
     }
     addTitle()  //新增標題
-    if ( data == null || data.length == 0) {  //如果無結果或超過四項
+    if ( data == null || data.length == 0) {  //如果無結果
         addDiv("no_result");
         let no_result = document.getElementById("no_result");
         let result = document.getElementById("no_result");
@@ -16,7 +16,12 @@ function showResult(data) {  //顯示搜尋結果
         for (let i = 0; i < data.length; i++) {  //輸出結果
             addDiv(data[i].id);
             addIconImg(data[i].id);
-            addPopperDiv(data[i].id, data[i].att, data[i].dtype, data[i].ult);
+            if (data[i].dtype != null) {
+                addPopperDiv(data[i].id, data[i].att, data[i].dtype, data[i].ult);
+            }
+            else {
+                addPopperDiv_bless(data[i].id, data[i].att);
+            }
             addImgEvent(data[i].id);
             addLink(data[i].id, data[i].sitelink, data[i].title);
             let ref = document.getElementById(data[i].id + "_img");
@@ -88,6 +93,17 @@ function addPopperDiv(id, attr, dtype, ult) {  //新增popper div
     setPopperDiv(pId, id, attr, dtype, ult);
 }
 
+function addPopperDiv_bless(id, attr) {  //新增popper div_bless
+    let parent = document.getElementById(id);
+    let div = document.createElement("div");
+    let pId = id + "_pId";
+    div.setAttribute("class", "tooltip");
+    div.setAttribute("id", pId);
+    div.setAttribute("role", "tooltip");
+    parent.appendChild(div);
+    setPopperDiv_bless(pId, id, attr);
+}
+
 function pop(ref, popId) {  //pop div
     Popper.createPopper(ref, popId, {
         modifiers: [
@@ -134,6 +150,30 @@ function setPopperDiv(pId, id, att, dtype, ult) {  //在Popper中新增div
     setPopperImgTag(id, attr_id, sk_one_id, sk_two_id, att, dtype, ult);
 }
 
+function setPopperDiv_bless(pId, id, att) {  //在Popper中新增div_bless
+    let parent = document.getElementById(pId);
+    let attr = document.createElement("div");
+    let sk_one = document.createElement("div");
+    let sk_two = document.createElement("div");
+    let hr1 = document.createElement("hr");
+    let hr2 = document.createElement("hr");
+    attr.setAttribute("class", "attr");
+    attr.setAttribute("id", id + "_attr");
+    parent.appendChild(attr);
+    parent.appendChild(hr1);
+    sk_one.setAttribute("class", "sk_one");
+    sk_one.setAttribute("id", id + "_sk_one");
+    parent.appendChild(sk_one);
+    parent.appendChild(hr2);
+    sk_two.setAttribute("class", "sk_two");
+    sk_two.setAttribute("id", id + "_sk_two");
+    parent.appendChild(sk_two);
+    let attr_id = document.getElementById(id + "_attr");
+    let sk_one_id = document.getElementById(id + "_sk_one");
+    let sk_two_id = document.getElementById(id + "_sk_two");
+    setPopperImgTag_bless(id, attr_id, sk_one_id, sk_two_id, att);
+}
+
 function setPopperImgTag(id, attr, one, two, att, dtype, ult) {
     let attr_img_one = document.createElement("img");
     let attr_img_two = document.createElement("img");
@@ -158,7 +198,40 @@ function setPopperImgTag(id, attr, one, two, att, dtype, ult) {
     two.appendChild(sk_two);
 }
 
+function setPopperImgTag_bless(id, attr, one, two, att) {
+    let attr_img_one = document.createElement("img");
+    let sk_one = document.createElement("img");
+    let sk_two = document.createElement("img");
+    attr_img_one.setAttribute("class", "att");
+    attr_img_one.setAttribute("id", id + "_att_one");
+    sk_one.setAttribute("class", "skill_ic");
+    sk_one.setAttribute("id", id + "_skImg_one");
+    sk_two.setAttribute("class", "skill_ic");
+    sk_two.setAttribute("id", id + "_skImg_one");
+    getPopperImg_bless(id, attr_img_one, sk_one, sk_two, att, one, two);
+    attr.appendChild(attr_img_one);
+    one.appendChild(sk_one);
+    two.appendChild(sk_two);
+}
+
 function setSkillContentDiv(id, one, two, content) {  //寫入技能敘述
+    let c_one = document.createElement("div");
+    let c_two = document.createElement("div");
+    let id_one = id + "_c_one";
+    let id_two = id + "_c_two";
+    c_one.setAttribute("id", id_one);
+    c_two.setAttribute("id", id_two);
+    c_one.setAttribute("class", "sk_c");
+    c_two.setAttribute("class", "sk_c");
+    one.appendChild(c_one);
+    two.appendChild(c_two);
+    let set_c_one = document.getElementById(id_one);
+    let set_c_two = document.getElementById(id_two);
+    set_c_one.innerHTML = content[0];
+    set_c_two.innerHTML = content[1];
+}
+
+function setSkillContentDiv_bless(id, one, two, content) {  //寫入技能敘述_bless
     let c_one = document.createElement("div");
     let c_two = document.createElement("div");
     let id_one = id + "_c_one";

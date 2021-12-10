@@ -1,18 +1,32 @@
-const searchBtn = document.getElementById("searchBtn");
+const searchBtn_char = document.getElementById("searchBtn_char");
+const searchBtn_bless = document.getElementById("searchBtn_bless");
 const reset = document.getElementsByClassName("reset_btn");
 const reserAll = document.getElementById("reset_all");
 const all = document.getElementsByClassName("all_btn");
 const input = document.getElementsByTagName("input");
 const goTop = document.getElementById("goTop");
-const and_btn = document.getElementById("AND");
+const and_btn = document.getElementById("AND_char");
+const and_btn_bless = document.getElementById("AND_bless");
 
-searchBtn.addEventListener("click", function () {  //搜尋
-    charSearch();
-    window.setTimeout(function () {
-        body = document.body.scrollHeight
-        window.scrollTo({ top: body, behavior: 'smooth' });
-    }, 500);
-});
+if (searchBtn_char != null) {
+    searchBtn_char.addEventListener("click", function () {  //搜尋_char
+        charSearch();
+        window.setTimeout(function () {
+            body = document.body.scrollHeight
+            window.scrollTo({ top: body, behavior: 'smooth' });
+        }, 500);
+    });
+}
+
+if (searchBtn_bless != null) {
+    searchBtn_bless.addEventListener("click", function () {  //搜尋_bless
+        blessSearch();
+        window.setTimeout(function () {
+            body = document.body.scrollHeight
+            window.scrollTo({ top: body, behavior: 'smooth' });
+        }, 500);
+    });
+}
 
 reserAll.addEventListener("click", function () {  //全部重置
     for (let m = 0; m < reset.length; m++) {
@@ -82,15 +96,31 @@ function addImgEvent(id) {  //點擊圖片時的處理
     })
 }
 
-and_btn.addEventListener("click", function () {  //AND OR 切換
-    if (and_btn.value == "AND") {
-        and_btn.value = "OR";
-        and_btn.setAttribute("data_show", "");
-        and_btn.textContent = "OR 搜尋";
-    }
-    else {
-        and_btn.value = "AND";
-        and_btn.textContent = "AND 搜尋";
-        and_btn.removeAttribute("data_show");
-    }
-})
+if (and_btn != null) {
+    and_btn.addEventListener("click", function () {  //AND OR 切換_char
+        if (and_btn.value == "AND") {
+            and_btn.value = "OR";
+            and_btn.setAttribute("data_show", "");
+            and_btn.textContent = "OR 搜尋";
+        }
+        else {
+            and_btn.value = "AND";
+            and_btn.textContent = "AND 搜尋";
+            and_btn.removeAttribute("data_show");
+        }
+    })
+}
+if (and_btn_bless != null) {
+    and_btn_bless.addEventListener("click", function () {  //AND OR 切換_bless
+        if (and_btn_bless.value == "AND") {
+            and_btn_bless.value = "OR";
+            and_btn_bless.setAttribute("data_show", "");
+            and_btn_bless.textContent = "OR 搜尋";
+        }
+        else {
+            and_btn_bless.value = "AND";
+            and_btn_bless.textContent = "AND 搜尋";
+            and_btn_bless.removeAttribute("data_show");
+        }
+    })
+}
