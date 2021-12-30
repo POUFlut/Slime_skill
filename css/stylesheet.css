@@ -507,7 +507,12 @@ footer{
         width: 100%;
     }
 
+    .aside{
+        opacity: 1.0;
+    }
+
     .aside[data-show] {
         width: 90%;
+        opacity: 1.0;
     }
 }
