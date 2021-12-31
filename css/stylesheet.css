@@ -508,11 +508,12 @@ footer{
     }
 
     .aside{
-        opacity: 1.0;
+        opacity: 0.9;
+	padding-top:200px;
     }
 
     .aside[data-show] {
         width: 90%;
-        opacity: 1.0;
+        opacity: 0.9;
     }
 }
